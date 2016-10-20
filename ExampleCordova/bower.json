@@ -1,0 +1,15 @@
+{
+    "name": "MapApp",
+    "version": "1.0.0",
+    "main": "path/to/main.css",
+    "ignore": [
+        ".jshintrc",
+        "**/*.txt"
+    ],
+    "dependencies": {
+        "ratchet": "~2.0.2",
+        "moment": "~2.15.1"
+    },
+    "devDependencies": {
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "AudioToolbox.framework": 2,
+    "CoreLocation.framework": 2,
+    "CoreTelephony.framework": 2,
+    "CoreMotion.framework": 2,
+    "CoreBluetooth.framework": 2,
+    "ExternalAccessory.framework": 2,
+    "AVFoundation.framework": 2,
+    "AdSupport.framework": 2,
+    "SystemConfiguration.framework": 2
+}

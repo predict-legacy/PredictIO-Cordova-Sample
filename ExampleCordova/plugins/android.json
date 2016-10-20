@@ -1,0 +1,40 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "mobi.predictio.sdk.plugin": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        }
+    }
+}
