@@ -61,7 +61,7 @@
         "is_top_level": true,
         "variables": {}
     },
-    "mobi.predictio.sdk.plugin": {
+    "cordova-plugin-predict-io": {
         "source": {
             "type": "git",
             "url": "https://github.com/predict-io/PredictIO-Cordova.git",

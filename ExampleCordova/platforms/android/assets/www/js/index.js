@@ -145,7 +145,7 @@ function startPredictIOTracker() {
                 },
                 'PredictIOPlugin',
                 'start',
-                ['']);
+                ['API_KEY']);
 }
 
 function stopPredictIOTracker() {
