@@ -29,6 +29,10 @@
                             "count": 1
                         },
                         {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"SQLitePlugin\"><param name=\"android-package\" value=\"io.sqlc.SQLitePlugin\" /></feature>",
                             "count": 1
                         },
@@ -38,10 +42,6 @@
                         },
                         {
                             "xml": "<feature name=\"PredictIOApp\"><param name=\"android-package\" value=\"io.predict.plugin.PredictIOApp\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -60,14 +60,6 @@
                         }
                     ],
                     "/manifest/application": [
-                        {
-                            "xml": "<meta-data android:name=\"io.predict.sdk.API_KEY\" android:value=\"780c75d51b9082e6cff9aa605be2b06d18107463e485eaa8db137a4868a35b68\" />",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<meta-data android:name=\"io.predict.sdk.API_KEY\" android:value=\"YOUR_API_KEY\" />",
-                            "count": 1
-                        },
                         {
                             "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
                             "count": 1
@@ -142,13 +134,13 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "mobi.predictio.sdk.plugin": {
-            "PACKAGE_NAME": "io.predict.cordova.example"
-        },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         }
     },
@@ -216,8 +208,8 @@
         "cordova-plugin-geolocation": "2.3.1-dev",
         "cordova-plugin-splashscreen": "4.0.1-dev",
         "cordova-plugin-statusbar": "2.2.1-dev",
+        "cordova-plugin-whitelist": "1.3.0",
         "cordova-sqlite-storage": "1.4.8-pre3",
-        "mobi.predictio.sdk.plugin": "3.0.1",
-        "cordova-plugin-whitelist": "1.3.0"
+        "cordova-plugin-predict-io": "3.0.1"
     }
 }

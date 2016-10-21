@@ -83,8 +83,8 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.1-dev",
     "cordova-sqlite-storage": "1.4.8-pre3",
     "cordova-plugin-compat": "1.0.0",
-    "mobi.predictio.sdk.plugin": "3.0.1",
-    "cordova-plugin-whitelist": "1.3.0"
+    "cordova-plugin-whitelist": "1.3.0",
+    "cordova-plugin-predict-io": "3.0.1"
 };
 // BOTTOM OF METADATA
 });

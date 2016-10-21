@@ -64,9 +64,9 @@ module.exports.metadata =
     "cordova-plugin-geolocation": "2.3.1-dev",
     "cordova-plugin-splashscreen": "4.0.1-dev",
     "cordova-plugin-statusbar": "2.2.1-dev",
+    "cordova-plugin-whitelist": "1.3.0",
     "cordova-sqlite-storage": "1.4.8-pre3",
-    "mobi.predictio.sdk.plugin": "3.0.1",
-    "cordova-plugin-whitelist": "1.3.0"
+    "cordova-plugin-predict-io": "3.0.1"
 };
 // BOTTOM OF METADATA
 });

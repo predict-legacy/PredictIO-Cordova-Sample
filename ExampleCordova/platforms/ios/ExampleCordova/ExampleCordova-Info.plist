@@ -25,48 +25,13 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleVersion</key>
-    <string>2016.09.28.01</string>
-    <key>Fabric</key>
-    <dict>
-      <key>APIKey</key>
-      <string>709f89668fb34a6470786626b72541f0bdec4fe3</string>
-      <key>Kits</key>
-      <array>
-        <dict>
-          <key>KitInfo</key>
-          <dict/>
-          <key>KitName</key>
-          <string>Crashlytics</string>
-        </dict>
-      </array>
-    </dict>
+    <string>3.0.1</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-      <key>NSAllowsArbitraryLoads</key>
-      <true/>
-    </dict>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>Data stays secure on your phone. GPS will help you find parking. Vacancy will be posted anonymously.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
     <key>NSMainNibFile</key>
     <string/>
     <key>NSMainNibFile~ipad</key>
     <string/>
-    <key>NSMotionUsageDescription</key>
-    <string>Data stays secure on your phone. Motion activity help us to detect arrivals and departures. Data will be posted anonymously.</string>
-    <key>UIBackgroundModes</key>
-    <array>
-      <string>location</string>
-    </array>
-    <key>UIInterfaceOrientation</key>
-    <array>
-      <string>UIInterfaceOrientationPortrait</string>
-    </array>
-    <key>UIRequiresFullScreen</key>
-    <true/>
     <key>UISupportedInterfaceOrientations</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
@@ -77,5 +42,26 @@
       <string>UIInterfaceOrientationPortrait</string>
       <string>UIInterfaceOrientationPortraitUpsideDown</string>
     </array>
+    <key>UIRequiresFullScreen</key>
+    <true/>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
+    <key>UIInterfaceOrientation</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Data stays secure on your phone. GPS will help you find parking. Vacancy will be posted anonymously.</string>
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>location</string>
+    </array>
+    <key>NSMotionUsageDescription</key>
+    <string>Data stays secure on your phone. Motion activity help us to detect arrivals and departures. Data will be posted anonymously.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string/>
   </dict>
 </plist>

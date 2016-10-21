@@ -22,13 +22,13 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "mobi.predictio.sdk.plugin": {
-            "PACKAGE_NAME": "io.predict.cordova.example"
-        },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         }
     },
