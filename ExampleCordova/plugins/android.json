@@ -16,19 +16,19 @@
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "cordova-plugin-predict-io": {
-            "PACKAGE_NAME": "io.predict.cordova.example"
-        },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         }
     },

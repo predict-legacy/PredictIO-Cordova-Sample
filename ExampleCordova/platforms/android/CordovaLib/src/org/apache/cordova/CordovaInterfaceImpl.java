@@ -25,7 +25,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,8 +42,8 @@ public class CordovaInterfaceImpl implements CordovaInterface {
     protected PluginManager pluginManager;
 
     protected ActivityResultHolder savedResult;
-    protected CallbackMap permissionResultCallbacks;
     protected CordovaPlugin activityResultCallback;
+    protected CordovaPlugin permissionResultCallback;
     protected String initCallbackService;
     protected int activityResultRequestCode;
     protected boolean activityWasDestroyed = false;
@@ -57,7 +56,6 @@ public class CordovaInterfaceImpl implements CordovaInterface {
     public CordovaInterfaceImpl(Activity activity, ExecutorService threadPool) {
         this.activity = activity;
         this.threadPool = threadPool;
-        this.permissionResultCallbacks = new CallbackMap();
     }
 
     @Override
@@ -210,21 +208,24 @@ public class CordovaInterfaceImpl implements CordovaInterface {
      */
     public void onRequestPermissionResult(int requestCode, String[] permissions,
                                           int[] grantResults) throws JSONException {
-        Pair<CordovaPlugin, Integer> callback = permissionResultCallbacks.getAndRemoveCallback(requestCode);
-        if(callback != null) {
-            callback.first.onRequestPermissionResult(callback.second, permissions, grantResults);
+        if(permissionResultCallback != null)
+        {
+            permissionResultCallback.onRequestPermissionResult(requestCode, permissions, grantResults);
+            permissionResultCallback = null;
         }
     }
 
     public void requestPermission(CordovaPlugin plugin, int requestCode, String permission) {
+        permissionResultCallback = plugin;
         String[] permissions = new String [1];
         permissions[0] = permission;
-        requestPermissions(plugin, requestCode, permissions);
+        getActivity().requestPermissions(permissions, requestCode);
     }
 
-    public void requestPermissions(CordovaPlugin plugin, int requestCode, String [] permissions) {
-        int mappedRequestCode = permissionResultCallbacks.registerCallback(plugin, requestCode);
-        getActivity().requestPermissions(permissions, mappedRequestCode);
+    public void requestPermissions(CordovaPlugin plugin, int requestCode, String [] permissions)
+    {
+        permissionResultCallback = plugin;
+        getActivity().requestPermissions(permissions, requestCode);
     }
 
     public boolean hasPermission(String permission)

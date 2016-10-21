@@ -1,63 +1,55 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
-        "id": "cordova-plugin-device.device",
         "file": "plugins/cordova-plugin-device/www/device.js",
-        "pluginId": "cordova-plugin-device",
+        "id": "cordova-plugin-device.device",
         "clobbers": [
             "device"
         ]
     },
     {
-        "id": "cordova-plugin-dialogs.notification",
         "file": "plugins/cordova-plugin-dialogs/www/notification.js",
-        "pluginId": "cordova-plugin-dialogs",
+        "id": "cordova-plugin-dialogs.notification",
         "merges": [
             "navigator.notification"
         ]
     },
     {
-        "id": "cordova-plugin-dialogs.notification_android",
         "file": "plugins/cordova-plugin-dialogs/www/android/notification.js",
-        "pluginId": "cordova-plugin-dialogs",
+        "id": "cordova-plugin-dialogs.notification_android",
         "merges": [
             "navigator.notification"
         ]
     },
     {
-        "id": "cordova-plugin-geolocation.geolocation",
         "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-        "pluginId": "cordova-plugin-geolocation",
+        "id": "cordova-plugin-geolocation.geolocation",
         "clobbers": [
             "navigator.geolocation"
         ]
     },
     {
-        "id": "cordova-plugin-geolocation.PositionError",
         "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-        "pluginId": "cordova-plugin-geolocation",
+        "id": "cordova-plugin-geolocation.PositionError",
         "runs": true
     },
     {
-        "id": "cordova-plugin-splashscreen.SplashScreen",
         "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-        "pluginId": "cordova-plugin-splashscreen",
+        "id": "cordova-plugin-splashscreen.SplashScreen",
         "clobbers": [
             "navigator.splashscreen"
         ]
     },
     {
-        "id": "cordova-plugin-statusbar.statusbar",
         "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "pluginId": "cordova-plugin-statusbar",
+        "id": "cordova-plugin-statusbar.statusbar",
         "clobbers": [
             "window.StatusBar"
         ]
     },
     {
-        "id": "cordova-sqlite-storage.SQLitePlugin",
         "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
-        "pluginId": "cordova-sqlite-storage",
+        "id": "cordova-sqlite-storage.SQLitePlugin",
         "clobbers": [
             "SQLitePlugin"
         ]
@@ -70,11 +62,11 @@ module.exports.metadata =
     "cordova-plugin-device": "1.1.4-dev",
     "cordova-plugin-dialogs": "1.3.1-dev",
     "cordova-plugin-geolocation": "2.3.1-dev",
-    "cordova-plugin-predict-io": "3.0.1",
     "cordova-plugin-splashscreen": "4.0.1-dev",
     "cordova-plugin-statusbar": "2.2.1-dev",
+    "cordova-plugin-whitelist": "1.3.0",
     "cordova-sqlite-storage": "1.4.8-pre3",
-    "cordova-plugin-whitelist": "1.3.0"
+    "cordova-plugin-predict-io": "3.0.1"
 };
 // BOTTOM OF METADATA
 });

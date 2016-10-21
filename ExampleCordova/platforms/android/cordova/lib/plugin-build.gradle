@@ -42,7 +42,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.android.library'
+apply plugin: 'android-library'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')

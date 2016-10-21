@@ -142,20 +142,22 @@ module.exports.check_java = function() {
             }
         }
     }).then(function() {
-            var msg =
-                'Failed to run "javac -version", make sure that you have a JDK installed.\n' +
-                'You can get it from: http://www.oracle.com/technetwork/java/javase/downloads.\n';
-            if (process.env['JAVA_HOME']) {
-                msg += 'Your JAVA_HOME is invalid: ' + process.env['JAVA_HOME'] + '\n';
-            }
+        var msg =
+            'Failed to run "java -version", make sure that you have a JDK installed.\n' +
+            'You can get it from: http://www.oracle.com/technetwork/java/javase/downloads.\n';
+        if (process.env['JAVA_HOME']) {
+            msg += 'Your JAVA_HOME is invalid: ' + process.env['JAVA_HOME'] + '\n';
+        }
+        return tryCommand('java -version', msg)
+        .then(function() {
             // We use tryCommand with catchStderr = true, because
             // javac writes version info to stderr instead of stdout
-            return tryCommand('javac -version', msg, true)
-                .then(function (output) {
-                    var match = /javac ((?:\d+\.)+(?:\d+))/i.exec(output);
-                    return match && match[1];
-                });
+            return tryCommand('javac -version', msg, true);
+        }).then(function (output) {
+            var match = /javac ((?:\d+\.)+(?:\d+))/i.exec(output)[1];
+            return match && match[1];
         });
+    });
 };
 
 // Returns a promise.
@@ -236,13 +238,13 @@ module.exports.getAbsoluteAndroidCmd = function () {
     return cmd.replace(/(\s)/g, '\\$1');
 };
 
-module.exports.check_android_target = function(originalError) {
+module.exports.check_android_target = function(valid_target) {
     // valid_target can look like:
     //   android-19
     //   android-L
     //   Google Inc.:Google APIs:20
     //   Google Inc.:Glass Development Kit Preview:20
-    var valid_target = module.exports.get_target();
+    if (!valid_target) valid_target = module.exports.get_target();
     var msg = 'Android SDK not found. Make sure that it is installed. If it is not at the default location, set the ANDROID_HOME environment variable.';
     return tryCommand('android list targets --compact', msg)
     .then(function(output) {
@@ -252,22 +254,18 @@ module.exports.check_android_target = function(originalError) {
         }
 
         var androidCmd = module.exports.getAbsoluteAndroidCmd();
-        var msg = 'Please install Android target: "' + valid_target + '".\n\n' +
+        throw new CordovaError('Please install Android target: "' + valid_target + '".\n\n' +
             'Hint: Open the SDK manager by running: ' + androidCmd + '\n' +
             'You will require:\n' +
             '1. "SDK Platform" for ' + valid_target + '\n' +
             '2. "Android SDK Platform-tools (latest)\n' +
-            '3. "Android SDK Build-tools" (latest)';
-        if (originalError) {
-            msg = originalError + '\n' + msg;
-        }
-        throw new CordovaError(msg);
+            '3. "Android SDK Build-tools" (latest)');
     });
 };
 
 // Returns a promise.
 module.exports.run = function() {
-    return Q.all([this.check_java(), this.check_android()])
+    return Q.all([this.check_java(), this.check_android().then(this.check_android_target)])
     .then(function() {
         console.log('ANDROID_HOME=' + process.env['ANDROID_HOME']);
         console.log('JAVA_HOME=' + process.env['JAVA_HOME']);

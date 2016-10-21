@@ -135,7 +135,6 @@ public class CordovaWebViewImpl implements CordovaWebView {
         if (recreatePlugins) {
             // Don't re-initialize on first load.
             if (loadedUrl != null) {
-                appPlugin = null;
                 pluginManager.init();
             }
             loadedUrl = url;

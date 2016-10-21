@@ -24,9 +24,6 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
-    <feature name="PredictIOPlugin">
-        <param name="ios-package" value="PredictIOPlugin" />
-    </feature>
     <feature name="SplashScreen">
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
@@ -37,6 +34,9 @@
     </feature>
     <feature name="SQLitePlugin">
         <param name="ios-package" value="SQLitePlugin" />
+    </feature>
+    <feature name="PredictIOPlugin">
+        <param name="ios-package" value="PredictIOPlugin" />
     </feature>
     <name>ExampleCordova</name>
     <description>
