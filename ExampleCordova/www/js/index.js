@@ -169,8 +169,9 @@ function departed(departedParam) {
     app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.DEPARTED);
 }
 
-function departureCanceled() {
-    app.insertRow(0.0, 0.0, new Date().getTime(), sdkEvent.DEPARTURECANCELED);
+function departureCanceled(departureCanceledParam) {
+    var param = JSON.parse(departureCanceledParam);
+    app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.DEPARTURECANCELED);
 }
 
 function transportationMode(transportationModeParam) { 
