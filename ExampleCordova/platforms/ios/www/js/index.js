@@ -262,8 +262,38 @@ function showMap(eventId) {
 }
 // Handle the back button
 function onBackKeyDown() {
-var isConfirm = confirm("Please press the Home button to keep the app running in the background, otherwise it cannot detect any events. \n\n Or do you really want to stop the app?");
-if (isConfirm == true) {
+    var isConfirm = confirm("Please press the Home button to keep the app running " +
+            "in the background, otherwise it cannot detect any events. \n\n Or do you " + 
+            "really want to stop the app?");
+    if (isConfirm) {
 	navigator.app.exitApp();
+    }
 }
+
+//Remote Notifications
+function setupPushNotifications() {
+    window.FirebasePlugin.grantPermission();
+    window.FirebasePlugin.onTokenRefresh(function(token) {
+        // save this server-side and use it to push notifications to this device
+        setPushNotificationToken(token);
+        setPushNotificationWebhookUrl();
+    }, function(error) {
+        console.error(error);
+    });
+}
+
+function setPushNotificationToken(token) {
+    cordova.exec(function successCallback() { },
+                function errorCallback(error) { },
+                'PredictIOPlugin',
+                'setCustomParameter',
+                ['device_token', token]);
+}
+
+function setPushNotificationWebhookUrl() {
+    cordova.exec(function successCallback() { },
+                function errorCallback(error) { },
+                'PredictIOPlugin',
+                'setWebhookURL',
+                ['https://api.parktag.mobi/demo/notifications/send_notification']);
 }

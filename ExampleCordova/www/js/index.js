@@ -269,3 +269,31 @@ function onBackKeyDown() {
 	navigator.app.exitApp();
     }
 }
+
+//Remote Notifications
+function setupPushNotifications() {
+    window.FirebasePlugin.grantPermission();
+    window.FirebasePlugin.onTokenRefresh(function(token) {
+        // save this server-side and use it to push notifications to this device
+        setPushNotificationToken(token);
+        setPushNotificationWebhookUrl();
+    }, function(error) {
+        console.error(error);
+    });
+}
+
+function setPushNotificationToken(token) {
+    cordova.exec(function successCallback() { },
+                function errorCallback(error) { },
+                'PredictIOPlugin',
+                'setCustomParameter',
+                ['device_token', token]);
+}
+
+function setPushNotificationWebhookUrl() {
+    cordova.exec(function successCallback() { },
+                function errorCallback(error) { },
+                'PredictIOPlugin',
+                'setWebhookURL',
+                ['https://api.parktag.mobi/demo/notifications/send_notification']);
+}
