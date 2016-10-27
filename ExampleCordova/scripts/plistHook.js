@@ -17,7 +17,7 @@ module.exports = function (context) {
     jsonObj.CFBundleDisplayName = 'PredictIO Cordova';
     jsonObj.CFBundleVersion = '2016.09.28.01';
     jsonObj.NSLocationAlwaysUsageDescription = 'Data stays secure on your phone. GPS will help you find parking. Vacancy will be posted anonymously.';
-    jsonObj.UIBackgroundModes = ['location'];
+    jsonObj.UIBackgroundModes = ['location', 'remote-notification'];
     jsonObj.NSMotionUsageDescription = 'Data stays secure on your phone. Motion activity help us to detect arrivals and departures. Data will be posted anonymously.';
     xml = plist.build(jsonObj);
     fs.writeFileSync(FILEPATH, xml, { encoding: 'utf8' });

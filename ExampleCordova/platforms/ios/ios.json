@@ -41,11 +41,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"PredictIOPlugin\"><param name=\"ios-package\" value=\"PredictIOPlugin\" /></feature>",
+                            "xml": "<feature name=\"FirebasePlugin\"><param name=\"ios-package\" value=\"FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"FirebasePlugin\"><param name=\"ios-package\" value=\"FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "xml": "<feature name=\"PredictIOPlugin\"><param name=\"ios-package\" value=\"PredictIOPlugin\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -105,10 +105,10 @@
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "cordova-plugin-predict-io": {
+        "cordova-plugin-firebase": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "cordova-plugin-firebase": {
+        "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         }
     },
@@ -203,7 +203,7 @@
         "cordova-plugin-statusbar": "2.2.1-dev",
         "cordova-sqlite-storage": "1.4.8-pre3",
         "cordova-plugin-compat": "1.0.0",
-        "cordova-plugin-predict-io": "3.0.1",
-        "cordova-plugin-firebase": "0.1.17"
+        "cordova-plugin-firebase": "0.1.17",
+        "cordova-plugin-predict-io": "3.0.1"
     }
 }

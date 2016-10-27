@@ -61,6 +61,7 @@ var app = {
         });
 		// Register back press event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
+        setupPushNotifications();
     },
     insertRow : function(latitude, longitude, timeStamp, type) {
         db.transaction(function(tx) {
@@ -277,6 +278,11 @@ function setupPushNotifications() {
         // save this server-side and use it to push notifications to this device
         setPushNotificationToken(token);
         setPushNotificationWebhookUrl();
+    }, function(error) {
+        console.error(error);
+    });
+    window.FirebasePlugin.onNotificationOpen(function(notification) {
+        alert(JSON.stringify(notification));
     }, function(error) {
         console.error(error);
     });
