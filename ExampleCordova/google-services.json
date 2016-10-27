@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "892253429562",
+    "firebase_url": "https://predictio-cordova.firebaseio.com",
+    "project_id": "predictio-cordova",
+    "storage_bucket": "predictio-cordova.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892253429562:android:b3e59939b62da21d",
+        "android_client_info": {
+          "package_name": "io.predict.cordova.example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892253429562-bvab4ev6hgncpd6qetpm5mupadm4uluq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVXxrKtkt8oondKofkaODECiO1lTNg4go"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

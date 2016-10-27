@@ -38,6 +38,10 @@
     <feature name="PredictIOPlugin">
         <param name="ios-package" value="PredictIOPlugin" />
     </feature>
+    <feature name="FirebasePlugin">
+        <param name="ios-package" value="FirebasePlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>ExampleCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

@@ -262,8 +262,10 @@ function showMap(eventId) {
 }
 // Handle the back button
 function onBackKeyDown() {
-var isConfirm = confirm("Please press the Home button to keep the app running in the background, otherwise it cannot detect any events. \n\n Or do you really want to stop the app?");
-if (isConfirm == true) {
+    var isConfirm = confirm("Please press the Home button to keep the app running " +
+            "in the background, otherwise it cannot detect any events. \n\n Or do you " + 
+            "really want to stop the app?");
+    if (isConfirm) {
 	navigator.app.exitApp();
-}
+    }
 }
