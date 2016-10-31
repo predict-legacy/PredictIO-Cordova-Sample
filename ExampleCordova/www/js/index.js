@@ -24,13 +24,22 @@ var sdkEvent = {
     STMPCALLBACK : 3,
     ARRIVALSUSPECTED : 4,
     ARRIVED : 5,
-    SEARCHING : 6
+    SEARCHING : 6,
+    STMP_CAR : 7,
+    STMP_NONCAR : 8,
+    STMP_UNDETERMINED : 9
 };
 
 var trackerState = {
     STARTED : "Started",
     STOPPED : "Stopped"
 };
+
+var stmpMode = {
+    CAR : "Car",
+    NONCAR : "NonCar",
+    UNDETERMINED : "Undetermined"
+}
 
 var trackerStateKey = "TrackerState";
 
@@ -120,7 +129,8 @@ var app = {
     },
     sdkEventTypeToString : function(type) {
         var sdkEventArray = ['Departing', 'Departed', 'Departure Canceled', 
-            'STMP Callback', 'Arrival Suspected', 'Arrived', 'Searching'];
+            'STMP Callback', 'Arrival Suspected', 'Arrived', 'Searching', 'STMP-Car',
+            'STMP-NonCar', 'STMP-Undetermined'];
         return sdkEventArray[type];
     }
 };
@@ -176,7 +186,9 @@ function departureCanceled(departureCanceledParam) {
 }
 
 function transportationMode(transportationModeParam) { 
-    app.insertRow(0.0, 0.0, new Date().getTime(), sdkEvent.STMPCALLBACK);
+    var param = JSON.parse(transportationModeParam);
+    var type = sdkEventForTransportationMode(param);
+    app.insertRow(0.0, 0.0, new Date().getTime(), type);
 }
 
 function arrivalSuspected(arrivalSuspectedParam) { 
@@ -192,6 +204,16 @@ function arrived(arrivedParam) {
 function searchingInPerimeter(searchingInPerimeterParam) { 
     var param = JSON.parse(searchingInPerimeterParam);
     app.insertRow(param.latitude, param.longitude, new Date().getTime(), sdkEvent.SEARCHING);
+}
+
+function sdkEventForTransportationMode(param) {
+    var type = sdkEvent.STMP_UNDETERMINED;
+    if (param.transportationMode === stmpMode.CAR) {
+        type = sdkEvent.STMP_CAR;
+    } else if (param.transportationMode === stmpMode.NONCAR) {
+        type = sdkEvent.STMP_NONCAR;
+    }
+    return type;
 }
 
 // Manipulating Ratchet Sliders
