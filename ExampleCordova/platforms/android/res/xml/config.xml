@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.predict.cordova.example" version="3.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="io.predict.cordova.example" version="3.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="Device">
         <param name="android-package" value="org.apache.cordova.device.Device" />
@@ -36,7 +36,6 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <allow-intent href="market:*" />
     <icon density="ldpi" src="res/android/mipmap-mdpi/ic_launcher.png" />
     <icon density="mdpi" src="res/android/mipmap-mdpi/ic_launcher.png" />
     <icon density="hdpi" src="res/android/mipmap-hdpi/ic_launcher.png" />
@@ -51,6 +50,7 @@
     <splash density="port-ldpi" src="res/screen/android/splash.png" />
     <splash density="port-mdpi" src="res/screen/android/splash.png" />
     <splash density="port-xhdpi" src="res/screen/android/splash.png" />
+    <allow-intent href="market:*" />
     <name>ExampleCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

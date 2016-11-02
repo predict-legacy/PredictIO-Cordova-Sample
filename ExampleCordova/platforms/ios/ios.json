@@ -110,6 +110,9 @@
         },
         "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
         }
     },
     "dependent_plugins": {},
@@ -204,6 +207,7 @@
         "cordova-sqlite-storage": "1.4.8-pre3",
         "cordova-plugin-compat": "1.0.0",
         "cordova-plugin-firebase": "0.1.17",
-        "cordova-plugin-predict-io": "3.0.1"
+        "cordova-plugin-predict-io": "3.0.1",
+        "cordova-plugin-whitelist": "1.3.0"
     }
 }
