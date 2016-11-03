@@ -7,11 +7,11 @@ See npm package for versions - https://www.npmjs.com/package/cordova-plugin-fire
 
 Install the plugin by adding it your project's config.xml:
 ```
-<plugin name="cordova-plugin-firebase" spec="0.1.17" />
+<plugin name="cordova-plugin-firebase" spec="0.1.18" />
 ```
 or by running:
 ```
-cordova plugin add cordova-plugin-firebase@0.1.17 --save
+cordova plugin add cordova-plugin-firebase@0.1.18 --save
 ```
 Download your Firebase configuration files, GoogleService-Info.plist for ios and google-services.json for android, and place them in the root folder of your cordova project:
 
@@ -83,6 +83,10 @@ Notification flow:
     1. User receives the notification message in its device notification bar
     2. User taps the notification and the app opens
     3. User receives the notification data in the JavaScript callback
+
+Notification icon on Android:
+
+The plugin will look for and use notification_icon in drawable resources if it exists, otherwise the default app icon will is used. 
 
 ### grantPermission (iOS only)
 

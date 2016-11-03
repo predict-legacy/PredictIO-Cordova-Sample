@@ -25,10 +25,10 @@
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "cordova-plugin-firebase": {
+        "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
-        "cordova-plugin-predict-io": {
+        "cordova-plugin-firebase": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
         "cordova-plugin-whitelist": {

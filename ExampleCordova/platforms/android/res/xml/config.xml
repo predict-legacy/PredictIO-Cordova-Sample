@@ -21,16 +21,16 @@
     <feature name="SQLitePlugin">
         <param name="android-package" value="io.sqlc.SQLitePlugin" />
     </feature>
-    <feature name="FirebasePlugin">
-        <param name="android-package" value="org.apache.cordova.firebase.FirebasePlugin" />
-        <param name="onload" value="true" />
-    </feature>
     <feature name="PredictIOPlugin">
         <param name="android-package" value="io.predict.plugin.PredictIOPlugin" />
         <param name="onload" value="true" />
     </feature>
     <feature name="PredictIOApp">
         <param name="android-package" value="io.predict.plugin.PredictIOApp" />
+    </feature>
+    <feature name="FirebasePlugin">
+        <param name="android-package" value="org.apache.cordova.firebase.FirebasePlugin" />
+        <param name="onload" value="true" />
     </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
