@@ -4,6 +4,4 @@
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
     
-    <string name="google_app_id">1:892253429562:android:b3e59939b62da21d</string>
-    <string name="google_api_key">AIzaSyCVXxrKtkt8oondKofkaODECiO1lTNg4go</string>
 </resources>

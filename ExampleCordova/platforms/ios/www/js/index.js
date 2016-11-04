@@ -27,7 +27,8 @@ var sdkEvent = {
     SEARCHING : 6,
     STMP_CAR : 7,
     STMP_NONCAR : 8,
-    STMP_UNDETERMINED : 9
+    STMP_UNDETERMINED : 9,
+    STMP_BICYCLE : 10
 };
 
 var trackerState = {
@@ -38,7 +39,8 @@ var trackerState = {
 var stmpMode = {
     CAR : "Car",
     NONCAR : "NonCar",
-    UNDETERMINED : "Undetermined"
+    UNDETERMINED : "Undetermined",
+    BICYCLE : "Bicycle"
 }
 
 var trackerStateKey = "TrackerState";
@@ -130,7 +132,7 @@ var app = {
     sdkEventTypeToString : function(type) {
         var sdkEventArray = ['Departing', 'Departed', 'Departure Canceled', 
             'STMP Callback', 'Arrival Suspected', 'Arrived', 'Searching', 'STMP-Car',
-            'STMP-NonCar', 'STMP-Undetermined'];
+            'STMP-NonCar', 'STMP-Undetermined', 'STMP-Bicycle'];
         return sdkEventArray[type];
     }
 };
@@ -212,6 +214,8 @@ function sdkEventForTransportationMode(param) {
         type = sdkEvent.STMP_CAR;
     } else if (param.transportationMode === stmpMode.NONCAR) {
         type = sdkEvent.STMP_NONCAR;
+    } else if (param.transportationMode === stmpMode.BICYCLE) {
+        type = sdkEvent.STMP_BICYCLE;
     }
     return type;
 }
