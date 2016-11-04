@@ -24,13 +24,22 @@ var sdkEvent = {
     STMPCALLBACK : 3,
     ARRIVALSUSPECTED : 4,
     ARRIVED : 5,
-    SEARCHING : 6
+    SEARCHING : 6,
+    STMP_CAR : 7,
+    STMP_NONCAR : 8,
+    STMP_UNDETERMINED : 9
 };
 
 var trackerState = {
     STARTED : "Started",
     STOPPED : "Stopped"
 };
+
+var stmpMode = {
+    CAR : "Car",
+    NONCAR : "NonCar",
+    UNDETERMINED : "Undetermined"
+}
 
 var trackerStateKey = "TrackerState";
 
@@ -61,6 +70,7 @@ var app = {
         });
 		// Register back press event listener
         document.addEventListener("backbutton", onBackKeyDown, false);
+        setupPushNotifications();
     },
     insertRow : function(latitude, longitude, timeStamp, type) {
         db.transaction(function(tx) {
@@ -119,7 +129,8 @@ var app = {
     },
     sdkEventTypeToString : function(type) {
         var sdkEventArray = ['Departing', 'Departed', 'Departure Canceled', 
-            'STMP Callback', 'Arrival Suspected', 'Arrived', 'Searching'];
+            'STMP Callback', 'Arrival Suspected', 'Arrived', 'Searching', 'STMP-Car',
+            'STMP-NonCar', 'STMP-Undetermined'];
         return sdkEventArray[type];
     }
 };
@@ -169,12 +180,15 @@ function departed(departedParam) {
     app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.DEPARTED);
 }
 
-function departureCanceled() {
-    app.insertRow(0.0, 0.0, new Date().getTime(), sdkEvent.DEPARTURECANCELED);
+function departureCanceled(departureCanceledParam) {
+    var param = JSON.parse(departureCanceledParam);
+    app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.DEPARTURECANCELED);
 }
 
 function transportationMode(transportationModeParam) { 
-    app.insertRow(0.0, 0.0, new Date().getTime(), sdkEvent.STMPCALLBACK);
+    var param = JSON.parse(transportationModeParam);
+    var type = sdkEventForTransportationMode(param);
+    app.insertRow(0.0, 0.0, new Date().getTime(), type);
 }
 
 function arrivalSuspected(arrivalSuspectedParam) { 
@@ -190,6 +204,16 @@ function arrived(arrivedParam) {
 function searchingInPerimeter(searchingInPerimeterParam) { 
     var param = JSON.parse(searchingInPerimeterParam);
     app.insertRow(param.latitude, param.longitude, new Date().getTime(), sdkEvent.SEARCHING);
+}
+
+function sdkEventForTransportationMode(param) {
+    var type = sdkEvent.STMP_UNDETERMINED;
+    if (param.transportationMode === stmpMode.CAR) {
+        type = sdkEvent.STMP_CAR;
+    } else if (param.transportationMode === stmpMode.NONCAR) {
+        type = sdkEvent.STMP_NONCAR;
+    }
+    return type;
 }
 
 // Manipulating Ratchet Sliders
@@ -261,8 +285,42 @@ function showMap(eventId) {
 }
 // Handle the back button
 function onBackKeyDown() {
-var isConfirm = confirm("Please press the Home button to keep the app running in the background, otherwise it cannot detect any events. \n\n Or do you really want to stop the app?");
-if (isConfirm == true) {
-	navigator.app.exitApp();
+    cordova.exec(function successCallback() { },
+                    function errorCallback(error) { },
+                    'PredictIOPlugin',
+                    'minimize',
+                    []);
 }
+
+//Remote Notifications
+function setupPushNotifications() {
+    window.FirebasePlugin.grantPermission();
+    window.FirebasePlugin.onTokenRefresh(function(token) {
+        // save this server-side and use it to push notifications to this device
+        setPushNotificationToken(token);
+        setPushNotificationWebhookUrl();
+    }, function(error) {
+        console.error(error);
+    });
+    window.FirebasePlugin.onNotificationOpen(function(notification) {
+        alert(JSON.stringify(notification));
+    }, function(error) {
+        console.error(error);
+    });
+}
+
+function setPushNotificationToken(token) {
+    cordova.exec(function successCallback() { },
+                function errorCallback(error) { },
+                'PredictIOPlugin',
+                'setCustomParameter',
+                ['device_token', token]);
+}
+
+function setPushNotificationWebhookUrl() {
+    cordova.exec(function successCallback() { },
+                function errorCallback(error) { },
+                'PredictIOPlugin',
+                'setWebhookURL',
+                ['https://api.parktag.mobi/demo/notifications/send_notification']);
 }

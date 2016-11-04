@@ -86,6 +86,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "cordova-plugin-firebase/example-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -241,8 +242,12 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     debugCompile project(path: "CordovaLib", configuration: "debug")
     releaseCompile project(path: "CordovaLib", configuration: "release")
-    compile "com.google.android.gms:play-services-location:9.2.1"
-    compile "com.google.android.gms:play-services-base:9.2.1"
+    compile "com.google.android.gms:play-services-location:9.4.0"
+    compile "com.google.android.gms:play-services-base:9.4.0"
+    compile "com.google.firebase:firebase-core:+"
+    compile "com.google.firebase:firebase-messaging:+"
+    compile "com.google.firebase:firebase-crash:+"
+    compile "com.google.firebase:firebase-config:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="io.predict.cordova.example" version="3.0.1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="io.predict.cordova.example" version="3.1.0">
     <name>ExampleCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -21,9 +21,6 @@
     <allow-intent href="sms:*"/>
     <allow-intent href="mailto:*"/>
     <allow-intent href="geo:*"/>
-    <platform name="android">
-        <allow-intent href="market:*"/>
-    </platform>
     <platform name="ios">
         <!-- App Icons -->
         <icon height="180" src="res/ios/icon-60@3x.png" width="180"/>
@@ -54,23 +51,24 @@
         <hook src="scripts/plistHook.js" type="after_prepare"/>
     </platform>
 	
-	<platform name="android">
+    <platform name="android">
         <!-- App Icons -->
-        <icon src="res/android/mipmap-mdpi/ic_launcher.png" density="ldpi" />
-        <icon src="res/android/mipmap-mdpi/ic_launcher.png" density="mdpi" />
-        <icon src="res/android/mipmap-hdpi/ic_launcher.png" density="hdpi" />
-        <icon src="res/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
-        <icon src="res/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
-        <icon src="res/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
-		 <!-- Splash Screens -->
-		<splash src="res/screen/android/splash.png" density="land-hdpi"/>
-		<splash src="res/screen/android/splash.png" density="land-ldpi"/>
-		<splash src="res/screen/android/splash.png" density="land-mdpi"/>
-		<splash src="res/screen/android/splash.png" density="land-xhdpi"/>
-		<splash src="res/screen/android/splash.png" density="port-hdpi"/>
-		<splash src="res/screen/android/splash.png" density="port-ldpi"/>
-		<splash src="res/screen/android/splash.png" density="port-mdpi"/>
-		<splash src="res/screen/android/splash.png" density="port-xhdpi"/>
+        <icon density="ldpi" src="res/android/mipmap-mdpi/ic_launcher.png"/>
+        <icon density="mdpi" src="res/android/mipmap-mdpi/ic_launcher.png"/>
+        <icon density="hdpi" src="res/android/mipmap-hdpi/ic_launcher.png"/>
+        <icon density="xhdpi" src="res/android/mipmap-xhdpi/ic_launcher.png"/>
+        <icon density="xxhdpi" src="res/android/mipmap-xxhdpi/ic_launcher.png"/>
+        <icon density="xxxhdpi" src="res/android/mipmap-xxxhdpi/ic_launcher.png"/>
+	<!-- Splash Screens -->
+	<splash density="land-hdpi" src="res/screen/android/splash.png"/>
+	<splash density="land-ldpi" src="res/screen/android/splash.png"/>
+	<splash density="land-mdpi" src="res/screen/android/splash.png"/>
+	<splash density="land-xhdpi" src="res/screen/android/splash.png"/>
+	<splash density="port-hdpi" src="res/screen/android/splash.png"/>
+	<splash density="port-ldpi" src="res/screen/android/splash.png"/>
+	<splash density="port-mdpi" src="res/screen/android/splash.png"/>
+	<splash density="port-xhdpi" src="res/screen/android/splash.png"/>
+        <allow-intent href="market:*"/>
     </platform>
 	
 </widget>
