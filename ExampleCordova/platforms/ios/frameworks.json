@@ -1,5 +1,10 @@
 {
     "AudioToolbox.framework": 2,
+    "libc++.tbd": 2,
+    "libz.tbd": 3,
+    "AddressBook.framework": 2,
+    "libsqlite3.0.tbd": 2,
+    "Security.framework": 2,
     "CoreLocation.framework": 2,
     "CoreTelephony.framework": 2,
     "CoreMotion.framework": 2,

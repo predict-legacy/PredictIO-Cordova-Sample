@@ -185,10 +185,6 @@ exports.defineManualTests = function (contentEl, createActionButton) {
         promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure'],'Default Text');
     }, 'prompt');
 
-    createActionButton('Prompt Dialog - no default', function () {
-        promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No']);
-    }, 'prompt');    
-
     createActionButton('Built-in Alert Dialog', function () {
         if (typeof alert === 'function') {
             alert('You pressed alert');

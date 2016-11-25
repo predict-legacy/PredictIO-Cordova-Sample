@@ -20,15 +20,18 @@
 var sdkEvent = {
     DEPARTING : 0,
     DEPARTED : 1,
-    DEPARTURECANCELED : 2,
+    CANCELEDDEPARTURE : 2,
     STMPCALLBACK : 3,
-    ARRIVALSUSPECTED : 4,
+    SUSPECTEDARRIVAL : 4,
     ARRIVED : 5,
     SEARCHING : 6,
     STMP_CAR : 7,
     STMP_NONCAR : 8,
     STMP_UNDETERMINED : 9,
-    STMP_BICYCLE : 10
+    STMP_BICYCLE : 10,
+    STATIONARY_AFTER_ARRIVAL_TRUE : 11,
+    STATIONARY_AFTER_ARRIVAL_FALSE : 12,
+    TRAVELED_BY_ARIPLANE : 13
 };
 
 var trackerState = {
@@ -130,9 +133,10 @@ var app = {
         return li;
     },
     sdkEventTypeToString : function(type) {
-        var sdkEventArray = ['Departing', 'Departed', 'Departure Canceled', 
+        var sdkEventArray = ['Departing', 'Departed', 'Canceled Departure', 
             'STMP Callback', 'Arrival Suspected', 'Arrived', 'Searching', 'STMP-Car',
-            'STMP-NonCar', 'STMP-Undetermined', 'STMP-Bicycle'];
+            'STMP-NonCar', 'STMP-Undetermined', 'STMP-Bicycle', 'Stationary-True',
+            'Stationary-False', 'Traveled By Airplane'];
         return sdkEventArray[type];
     }
 };
@@ -158,7 +162,7 @@ function startPredictIOTracker() {
                 },
                 'PredictIOPlugin',
                 'start',
-                ['API_KEY']);
+                ['80e3b81e78800087da979fd7724297a7fa75e42a466ab4a9ca1805d155d21b53']);
 }
 
 function stopPredictIOTracker() {
@@ -182,20 +186,20 @@ function departed(departedParam) {
     app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.DEPARTED);
 }
 
-function departureCanceled(departureCanceledParam) {
-    var param = JSON.parse(departureCanceledParam);
-    app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.DEPARTURECANCELED);
+function canceledDeparture(canceledDepartureParam) {
+    var param = JSON.parse(canceledDepartureParam);
+    app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.CANCELEDDEPARTURE);
 }
 
-function transportationMode(transportationModeParam) { 
+function detectedTransportationMode(transportationModeParam) { 
     var param = JSON.parse(transportationModeParam);
     var type = sdkEventForTransportationMode(param);
     app.insertRow(0.0, 0.0, new Date().getTime(), type);
 }
 
-function arrivalSuspected(arrivalSuspectedParam) { 
-    var param = JSON.parse(arrivalSuspectedParam);
-    app.insertRow(param.arrivalLatitude, param.arrivalLongitude, new Date().getTime(), sdkEvent.ARRIVALSUSPECTED);
+function suspectedArrival(suspectedArrivalParam) { 
+    var param = JSON.parse(suspectedArrivalParam);
+    app.insertRow(param.arrivalLatitude, param.arrivalLongitude, new Date().getTime(), sdkEvent.SUSPECTEDARRIVAL);
 }
 
 function arrived(arrivedParam) { 
@@ -208,6 +212,17 @@ function searchingInPerimeter(searchingInPerimeterParam) {
     app.insertRow(param.latitude, param.longitude, new Date().getTime(), sdkEvent.SEARCHING);
 }
 
+function beingStationaryAfterArrival(stationaryParam) {
+    var param = JSON.parse(stationaryParam);
+    var type = sdkEventForStationaryAfterArrival(param);
+    app.insertRow(param.arrivalLatitude, param.arrivalLongitude, new Date().getTime(), type);
+}
+
+function traveledByAirplane(traveledByAirplaneParam) {
+    var param = JSON.parse(traveledByAirplaneParam);
+    app.insertRow(param.departureLatitude, param.departureLongitude, new Date().getTime(), sdkEvent.TRAVELED_BY_ARIPLANE);
+}
+
 function sdkEventForTransportationMode(param) {
     var type = sdkEvent.STMP_UNDETERMINED;
     if (param.transportationMode === stmpMode.CAR) {
@@ -216,6 +231,14 @@ function sdkEventForTransportationMode(param) {
         type = sdkEvent.STMP_NONCAR;
     } else if (param.transportationMode === stmpMode.BICYCLE) {
         type = sdkEvent.STMP_BICYCLE;
+    }
+    return type;
+}
+
+function sdkEventForStationaryAfterArrival(param) {
+    var type = sdkEvent.STATIONARY_AFTER_ARRIVAL_FALSE;
+    if (param.stationaryAfterArrival) {
+        type = sdkEvent.STATIONARY_AFTER_ARRIVAL_TRUE;
     }
     return type;
 }

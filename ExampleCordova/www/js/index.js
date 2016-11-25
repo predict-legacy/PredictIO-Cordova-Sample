@@ -162,7 +162,7 @@ function startPredictIOTracker() {
                 },
                 'PredictIOPlugin',
                 'start',
-                ['API_KEY']);
+                ['80e3b81e78800087da979fd7724297a7fa75e42a466ab4a9ca1805d155d21b53']);
 }
 
 function stopPredictIOTracker() {

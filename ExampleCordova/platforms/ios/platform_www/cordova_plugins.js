@@ -17,6 +17,14 @@ module.exports = [
         ]
     },
     {
+        "id": "cordova-plugin-fcm.FCMPlugin",
+        "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
+        "pluginId": "cordova-plugin-fcm",
+        "clobbers": [
+            "FCMPlugin"
+        ]
+    },
+    {
         "id": "cordova-plugin-geolocation.Coordinates",
         "file": "plugins/cordova-plugin-geolocation/www/Coordinates.js",
         "pluginId": "cordova-plugin-geolocation",
@@ -71,29 +79,21 @@ module.exports = [
         "clobbers": [
             "SQLitePlugin"
         ]
-    },
-    {
-        "id": "cordova-plugin-firebase.FirebasePlugin",
-        "file": "plugins/cordova-plugin-firebase/www/firebase.js",
-        "pluginId": "cordova-plugin-firebase",
-        "clobbers": [
-            "FirebasePlugin"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-device": "1.1.4-dev",
-    "cordova-plugin-dialogs": "1.3.1-dev",
-    "cordova-plugin-geolocation": "2.3.1-dev",
-    "cordova-plugin-splashscreen": "4.0.1-dev",
-    "cordova-plugin-statusbar": "2.2.1-dev",
-    "cordova-sqlite-storage": "1.4.8-pre3",
-    "cordova-plugin-compat": "1.0.0",
+    "cordova-plugin-compat": "1.1.0",
+    "cordova-plugin-device": "1.1.3",
+    "cordova-plugin-dialogs": "1.3.0",
+    "cordova-plugin-fcm": "1.1.5",
+    "cordova-plugin-geolocation": "2.4.0",
     "cordova-plugin-predict-io": "3.1.0",
-    "cordova-plugin-firebase": "0.1.18",
-    "cordova-plugin-whitelist": "1.3.0"
+    "cordova-plugin-splashscreen": "4.0.0",
+    "cordova-plugin-statusbar": "2.2.0",
+    "cordova-plugin-whitelist": "1.3.0",
+    "cordova-sqlite-storage": "1.5.0"
 };
 // BOTTOM OF METADATA
 });
