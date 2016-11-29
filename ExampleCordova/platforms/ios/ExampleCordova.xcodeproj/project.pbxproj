@@ -5,17 +5,14 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
-		10343B5F82FE439E92105724 /* libPredictIOSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C532C0B76A5A433D947CFB70 /* libPredictIOSDK.a */; };
 		12FD9E7CF7EC41D594CD0B19 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC23CB3F07054506B7822F5B /* CoreLocation.framework */; };
 		175E0A57D8DA4D6F9AA44F58 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB35C655A1274D1186D0D400 /* CoreMotion.framework */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1FCB2C28C9B64F7991C0985C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BA76D1E790D45C9BD63D0BA /* AdSupport.framework */; };
 		2901CF9AB1D843EDBECB0C37 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2B2A01F16B4A11BE2712A7 /* GoogleInterchangeUtilities.framework */; };
-		2B93D3C86E104BF1BCBC06AE /* PredictIOPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4180A6EFA57440FA92E9F1F0 /* PredictIOPlugin.m */; };
 		301BF552109A68D80062928A /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 301BF535109A57CC0062928A /* libCordova.a */; };
 		302D95F114D2391D003F00A1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302D95EF14D2391D003F00A1 /* MainViewController.m */; };
 		302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302D95F014D2391D003F00A1 /* MainViewController.xib */; };
@@ -48,6 +45,8 @@
 		F4267038A6584775ACA0EE5E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49C3A1F4335468E8C09828F /* SystemConfiguration.framework */; };
 		F49CB783A858487AB007F496 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = F10A777550F84AFA89E80F57 /* sqlite3.c */; settings = {COMPILER_FLAGS = "-DSQLITE_TEMP_STORE=2 -DSQLITE_THREADSAFE=2 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_RTREE -DSQLITE_LOCKING_STYLE=1 -DSQLITE_DEFAULT_PAGE_SIZE=1024 -DSQLITE_DEFAULT_CACHE_SIZE=2000 -DSQLITE_OMIT_BUILTIN_TEST -DSQLITE_OMIT_LOAD_EXTENSION"; }; };
 		F9028CF6BE7B466DA4BF2B23 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96045EBF72284EA1B7E29CB2 /* AVFoundation.framework */; };
+		CE118D7FD7634C739800F87B /* PredictIOPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E71A0C3F0549B19827AD51 /* PredictIOPlugin.m */; };
+		0D6DD780BADA45FDB04D06AC /* libPredictIOSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 601B8E8AF0FC4FA282266E5E /* libPredictIOSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,13 +92,11 @@
 		3728154953434ECD9E010651 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = "ExampleCordova/Plugins/cordova-plugin-fcm/GoogleIPhoneUtilities.framework"; sourceTree = "<group>"; };
 		3E3EF389A2584C06B05CE656 /* CoreBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		3FE0B307092F4ACABB8947FA /* CoreTelephony.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		4180A6EFA57440FA92E9F1F0 /* PredictIOPlugin.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = PredictIOPlugin.m; path = "cordova-plugin-predict-io/PredictIOPlugin.m"; sourceTree = "<group>"; };
 		5BA76D1E790D45C9BD63D0BA /* AdSupport.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		61E4595594314947874D8634 /* SQLitePlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = SQLitePlugin.h; path = "cordova-sqlite-storage/SQLitePlugin.h"; sourceTree = "<group>"; };
 		65622B27F2C6491798CEDC35 /* CDVNotification.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = "cordova-plugin-dialogs/CDVNotification.h"; sourceTree = "<group>"; };
 		66781FF21DE88D7C00A75C9A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		74894AF79EF04531B41659D7 /* CDVSplashScreen.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = "cordova-plugin-splashscreen/CDVSplashScreen.m"; sourceTree = "<group>"; };
-		75D628E5BF6A439F98C849FE /* PredictIOPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = PredictIOPlugin.h; path = "cordova-plugin-predict-io/PredictIOPlugin.h"; sourceTree = "<group>"; };
 		81762D5B21014D3CBA2E1D0E /* AudioToolbox.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8816663D61174BAB97036C69 /* CDVNotification.bundle */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.plug-in"; path = CDVNotification.bundle; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ExampleCordova-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "ExampleCordova-Info.plist"; path = "ExampleCordova/ExampleCordova-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = SOURCE_ROOT; };
@@ -117,7 +114,6 @@
 		BB54D23EABD74C2590E834E4 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = "ExampleCordova/Plugins/cordova-plugin-fcm/FirebaseAnalytics.framework"; sourceTree = "<group>"; };
 		BB580F4804BB4D7A96B290D9 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		BE3FBA42D5E740ABA5D8F24C /* libsqlite3.0.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		C532C0B76A5A433D947CFB70 /* libPredictIOSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; name = libPredictIOSDK.a; path = "ExampleCordova/Plugins/cordova-plugin-predict-io/libPredictIOSDK.a"; sourceTree = "<group>"; };
 		CCE4527BFB914BEE8D847657 /* CDVStatusBar.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVStatusBar.m; path = "cordova-plugin-statusbar/CDVStatusBar.m"; sourceTree = "<group>"; };
 		D82D6990659B43E3BF502CDD /* CDVNotification.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = "cordova-plugin-dialogs/CDVNotification.m"; sourceTree = "<group>"; };
 		D8A37FA45D904836A2A288D6 /* CDVDevice.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; };
@@ -125,7 +121,6 @@
 		DFE5EBED2A5B456BA17D4844 /* AppDelegate+FCMPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+FCMPlugin.h"; path = "cordova-plugin-fcm/AppDelegate+FCMPlugin.h"; sourceTree = "<group>"; };
 		E7B02A9D594A4644A5759F3C /* ExternalAccessory.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		E8E5E225385B458A8F1A6C26 /* CDVDevice.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVDevice.m; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; };
-		E936E61DF33D4826AA36EB30 /* PredictIO.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = PredictIO.h; path = "cordova-plugin-predict-io/PredictIO.h"; sourceTree = "<group>"; };
 		E9C9EED7454048A6A7C921C4 /* CDVViewController+SplashScreen.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "CDVViewController+SplashScreen.h"; path = "cordova-plugin-splashscreen/CDVViewController+SplashScreen.h"; sourceTree = "<group>"; };
 		EBD4BE0585024150BD4A02C3 /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = "ExampleCordova/Plugins/cordova-plugin-fcm/GoogleUtilities.framework"; sourceTree = "<group>"; };
 		ED33DF2A687741AEAF9F8254 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -133,7 +128,12 @@
 		F3CA85D167E24A94BD7EA656 /* libc++.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ExampleCordova/config.xml; sourceTree = "<group>"; };
 		FB89AF87732C4FE8AFF0ECC7 /* CDVStatusBar.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVStatusBar.h; path = "cordova-plugin-statusbar/CDVStatusBar.h"; sourceTree = "<group>"; };
-		FD97FC04E5F84DC7AFAB070F /* PIOTripSegment.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = PIOTripSegment.h; path = "cordova-plugin-predict-io/PIOTripSegment.h"; sourceTree = "<group>"; };
+		46E71A0C3F0549B19827AD51 /* PredictIOPlugin.m */ = {isa = PBXFileReference; name = "PredictIOPlugin.m"; path = "cordova-plugin-predict-io/PredictIOPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		601B8E8AF0FC4FA282266E5E /* libPredictIOSDK.a */ = {isa = PBXFileReference; name = "libPredictIOSDK.a"; path = "ExampleCordova/Plugins/cordova-plugin-predict-io/libPredictIOSDK.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		2C592B0A91694732946532DB /* PredictIO.h */ = {isa = PBXFileReference; name = "PredictIO.h"; path = "cordova-plugin-predict-io/PredictIO.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		CBBD2E67C4054D81B7053A9C /* PIOTripSegment.h */ = {isa = PBXFileReference; name = "PIOTripSegment.h"; path = "cordova-plugin-predict-io/PIOTripSegment.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		E2F7759D50FA431AA8ED7175 /* PredictIOPlugin.h */ = {isa = PBXFileReference; name = "PredictIOPlugin.h"; path = "cordova-plugin-predict-io/PredictIOPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		82A7D9D1DE3946169952F070 /* PIOZone.h */ = {isa = PBXFileReference; name = "PIOZone.h"; path = "cordova-plugin-predict-io/PIOZone.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 				BEBA650D26894C5DB7DBB471 /* GoogleIPhoneUtilities.framework in Frameworks */,
 				575239D9BC13466A8BBD64D0 /* GoogleSymbolUtilities.framework in Frameworks */,
 				BDB69C9A99BD4CD3A9BF3EA0 /* GoogleUtilities.framework in Frameworks */,
-				10343B5F82FE439E92105724 /* libPredictIOSDK.a in Frameworks */,
+				0D6DD780BADA45FDB04D06AC /* libPredictIOSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +254,7 @@
 				3728154953434ECD9E010651 /* GoogleIPhoneUtilities.framework */,
 				A2D3EE5E05C347BDA40014C7 /* GoogleSymbolUtilities.framework */,
 				EBD4BE0585024150BD4A02C3 /* GoogleUtilities.framework */,
-				C532C0B76A5A433D947CFB70 /* libPredictIOSDK.a */,
+				601B8E8AF0FC4FA282266E5E /* libPredictIOSDK.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -291,10 +291,6 @@
 				06D97FD73B464EE7B74E781C /* Firebase.h */,
 				959F508907F8468B810511AA /* CDVLocation.m */,
 				1B2262F2CBD74148ACAF69BF /* CDVLocation.h */,
-				4180A6EFA57440FA92E9F1F0 /* PredictIOPlugin.m */,
-				E936E61DF33D4826AA36EB30 /* PredictIO.h */,
-				FD97FC04E5F84DC7AFAB070F /* PIOTripSegment.h */,
-				75D628E5BF6A439F98C849FE /* PredictIOPlugin.h */,
 				74894AF79EF04531B41659D7 /* CDVSplashScreen.m */,
 				04DAB0E73EBF49468C78E12A /* CDVViewController+SplashScreen.m */,
 				0F4AF5F8434348E49FF866EB /* CDVSplashScreen.h */,
@@ -305,6 +301,11 @@
 				F10A777550F84AFA89E80F57 /* sqlite3.c */,
 				61E4595594314947874D8634 /* SQLitePlugin.h */,
 				1210058E857843A6AC87F113 /* sqlite3.h */,
+				46E71A0C3F0549B19827AD51 /* PredictIOPlugin.m */,
+				2C592B0A91694732946532DB /* PredictIO.h */,
+				CBBD2E67C4054D81B7053A9C /* PIOTripSegment.h */,
+				E2F7759D50FA431AA8ED7175 /* PredictIOPlugin.h */,
+				82A7D9D1DE3946169952F070 /* PIOZone.h */,
 			);
 			name = Plugins;
 			path = ExampleCordova/Plugins;
@@ -426,12 +427,12 @@
 				972C2B6DC12845A9828E3895 /* FCMPlugin.m in Sources */,
 				3377E8A8F16B49E1A6AFA22B /* AppDelegate+FCMPlugin.m in Sources */,
 				3A10353488404847A932ABA5 /* CDVLocation.m in Sources */,
-				2B93D3C86E104BF1BCBC06AE /* PredictIOPlugin.m in Sources */,
 				57E110A98CA14BA0BEE0E628 /* CDVSplashScreen.m in Sources */,
 				9A662647901E402CAE2FB2AA /* CDVViewController+SplashScreen.m in Sources */,
 				A82A5E56D0EB47729331B316 /* CDVStatusBar.m in Sources */,
 				3615A9BFB2E742CB86BBB26C /* SQLitePlugin.m in Sources */,
 				F49CB783A858487AB007F496 /* sqlite3.c in Sources */,
+				CE118D7FD7634C739800F87B /* PredictIOPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

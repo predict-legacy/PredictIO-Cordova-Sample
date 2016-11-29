@@ -72,7 +72,7 @@
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.0" />
     <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
     <plugin name="cordova-sqlite-storage" spec="~1.5.0" />
-    <plugin name="cordova-plugin-predict-io" spec="https://github.com/predict-io/PredictIO-Cordova" />
     <plugin name="cordova-plugin-fcm" spec="https://github.com/fechanique/cordova-plugin-fcm" />
     <engine name="android" spec="~5.2.2" />
+    <plugin name="cordova-plugin-predict-io" spec="https://github.com/predict-io/PredictIO-Cordova" />
 </widget>

@@ -79,11 +79,11 @@ module.exports.metadata =
     "cordova-plugin-dialogs": "1.3.0",
     "cordova-plugin-fcm": "1.1.5",
     "cordova-plugin-geolocation": "2.4.0",
-    "cordova-plugin-predict-io": "3.1.0",
     "cordova-plugin-splashscreen": "4.0.0",
     "cordova-plugin-statusbar": "2.2.0",
     "cordova-plugin-whitelist": "1.3.0",
-    "cordova-sqlite-storage": "1.5.0"
+    "cordova-sqlite-storage": "1.5.0",
+    "cordova-plugin-predict-io": "3.2.0"
 };
 // BOTTOM OF METADATA
 });

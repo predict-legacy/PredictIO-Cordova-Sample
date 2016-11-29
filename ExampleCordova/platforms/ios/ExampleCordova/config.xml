@@ -27,9 +27,6 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
-    <feature name="PredictIOPlugin">
-        <param name="ios-package" value="PredictIOPlugin" />
-    </feature>
     <feature name="SplashScreen">
         <param name="ios-package" value="CDVSplashScreen" />
         <param name="onload" value="true" />
@@ -99,4 +96,7 @@
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="Orientation" value="portrait" />
+    <feature name="PredictIOPlugin">
+        <param name="ios-package" value="PredictIOPlugin" />
+    </feature>
 </widget>
