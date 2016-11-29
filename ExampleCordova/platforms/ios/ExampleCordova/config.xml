@@ -38,6 +38,9 @@
     <feature name="SQLitePlugin">
         <param name="ios-package" value="SQLitePlugin" />
     </feature>
+    <feature name="PredictIOPlugin">
+        <param name="ios-package" value="PredictIOPlugin" />
+    </feature>
     <name>ExampleCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -96,7 +99,4 @@
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="Orientation" value="portrait" />
-    <feature name="PredictIOPlugin">
-        <param name="ios-package" value="PredictIOPlugin" />
-    </feature>
 </widget>
