@@ -4,11 +4,11 @@ The Example project shows how the predict.io SDK works and also how the predict.
 
 ## User interface
 
-![Home_UI_guide-1](/Users/kierangraham/Desktop/Home_UI_guide-1.png)
+![Home_UI_guide-1](images/Home_UI_guide-1.png)
 
 Once you've done a test trip you'll see a list of events detected by the SDK. Tapping on a cell will show you more details about the event.
 
-![location-and-accuracy-view-1](/Users/kierangraham/Desktop/location-and-accuracy-view-1.png)
+![location-and-accuracy-view-1](images/location-and-accuracy-view-1.png)
 
 ## Running and Testing
 
