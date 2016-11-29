@@ -8,11 +8,11 @@ MIT or Apache 2.0
 
 MIT or Apache 2.0
 
-## iOS version
+## iOS/macOS version
 
 MIT only
 
-## Windows (8.1) version
+## Windows version
 
 MIT or Apache 2.0
 
@@ -21,4 +21,3 @@ MIT or Apache 2.0
 by @doo (doo GmbH)
 
 MIT License
-

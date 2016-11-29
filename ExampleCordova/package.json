@@ -1,8 +1,17 @@
 {
-    "name": "MapApp",
-    "version": "1.0.0",
-    "keywords": ["util", "functional", "server", "client", "browser"],
-    "author": "arbisoft",
-    "contributors": [],
-    "dependencies": {}
+  "name": "MapApp",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "arbisoft",
+  "contributors": [],
+  "dependencies": {
+    "ios-deploy": "1.9.0",
+    "plist": "2.0.1"
+  }
 }

@@ -317,7 +317,7 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
   };
 
   SQLitePluginTransaction.prototype.start = function() {
-    var err, error1;
+    var err;
     try {
       this.fn(this);
       this.run();
@@ -405,7 +405,7 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
     tx = this;
     handlerFor = function(index, didSucceed) {
       return function(response) {
-        var err, error1;
+        var err;
         if (!txFailure) {
           try {
             if (didSucceed) {
@@ -625,7 +625,7 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
   SelfTest = {
     DBNAME: '___$$$___litehelpers___$$$___test___$$$___.db',
     start: function(successcb, errorcb) {
-      return SQLiteFactory.deleteDatabase({
+      SQLiteFactory.deleteDatabase({
         name: SelfTest.DBNAME,
         location: 'default'
       }, (function() {
@@ -635,7 +635,49 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
       }));
     },
     start2: function(successcb, errorcb) {
-      return SQLiteFactory.openDatabase({
+      SQLiteFactory.openDatabase({
+        name: SelfTest.DBNAME,
+        location: 'default'
+      }, function(db) {
+        var check1;
+        check1 = false;
+        return db.transaction(function(tx) {
+          return tx.executeSql('SELECT UPPER("Test") AS upperText', [], function(ignored, resutSet) {
+            if (!resutSet.rows) {
+              return SelfTest.finishWithError(errorcb, 'Missing resutSet.rows');
+            }
+            if (!resutSet.rows.length) {
+              return SelfTest.finishWithError(errorcb, 'Missing resutSet.rows.length');
+            }
+            if (resutSet.rows.length !== 1) {
+              return SelfTest.finishWithError(errorcb, "Incorrect resutSet.rows.length value: " + resutSet.rows.length + " (expected: 1)");
+            }
+            if (!resutSet.rows.item(0).upperText) {
+              return SelfTest.finishWithError(errorcb, 'Missing resutSet.rows.item(0).upperText');
+            }
+            if (resutSet.rows.item(0).upperText !== 'TEST') {
+              return SelfTest.finishWithError(errorcb, "Incorrect resutSet.rows.item(0).upperText value: " + (resutSet.rows.item(0).data) + " (expected: 'TEST')");
+            }
+            check1 = true;
+          }, function(sql_err) {
+            SelfTest.finishWithError(errorcb, "SQL error: " + sql_err);
+          });
+        }, function(tx_err) {
+          SelfTest.finishWithError(errorcb, "TRANSACTION error: " + tx_err);
+        }, function() {
+          if (!check1) {
+            return SelfTest.finishWithError(errorcb, 'Did not get expected upperText result data');
+          }
+          delete db.openDBs[SelfTest.DBNAME];
+          delete txLocks[SelfTest.DBNAME];
+          SelfTest.start3(successcb, errorcb);
+        });
+      }, function(open_err) {
+        return SelfTest.finishWithError(errorcb, "Open database error: " + open_err);
+      });
+    },
+    start3: function(successcb, errorcb) {
+      SQLiteFactory.openDatabase({
         name: SelfTest.DBNAME,
         location: 'default'
       }, function(db) {
@@ -772,7 +814,7 @@ cordova.define("cordova-sqlite-storage.SQLitePlugin", function(require, exports,
       });
     },
     finishWithError: function(errorcb, message) {
-      return SQLiteFactory.deleteDatabase({
+      SQLiteFactory.deleteDatabase({
         name: SelfTest.DBNAME,
         location: 'default'
       }, function() {

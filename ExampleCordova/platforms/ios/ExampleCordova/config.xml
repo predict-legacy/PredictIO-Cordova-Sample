@@ -21,6 +21,9 @@
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
+    <feature name="FCMPlugin">
+        <param name="ios-package" value="FCMPlugin" />
+    </feature>
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
@@ -37,10 +40,6 @@
     </feature>
     <feature name="PredictIOPlugin">
         <param name="ios-package" value="PredictIOPlugin" />
-    </feature>
-    <feature name="FirebasePlugin">
-        <param name="ios-package" value="FirebasePlugin" />
-        <param name="onload" value="true" />
     </feature>
     <name>ExampleCordova</name>
     <description>

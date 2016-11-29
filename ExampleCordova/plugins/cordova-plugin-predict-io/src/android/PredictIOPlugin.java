@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -21,9 +22,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import io.predict.PIOTripSegment;
+import io.predict.PIOZone;
 import io.predict.PredictIO;
 import io.predict.PredictIOListener;
 import io.predict.PredictIOStatus;
+import io.predict.TransportationMode;
 
 import static io.predict.plugin.PredictIOForegroundService.NOTIFICATION_CONTENT;
 
@@ -229,7 +232,7 @@ public class PredictIOPlugin extends CordovaPlugin implements PredictIOListener 
         }
     }
 
-    public Context getApplicationContext() {
+    private Context getApplicationContext() {
         return this.cordova.getActivity().getApplicationContext();
     }
 
@@ -247,9 +250,9 @@ public class PredictIOPlugin extends CordovaPlugin implements PredictIOListener 
     }
 
     @Override
-    public void arrivalSuspected(PIOTripSegment tripSegment) {
+    public void suspectedArrival(PIOTripSegment tripSegment) {
         String param = getJsonParams(tripSegment);
-        evaluateJavascript("arrivalSuspected('" + param + "')");
+        evaluateJavascript("suspectedArrival('" + param + "')");
     }
 
     @Override
@@ -259,9 +262,21 @@ public class PredictIOPlugin extends CordovaPlugin implements PredictIOListener 
     }
 
     @Override
-    public void departureCanceled(PIOTripSegment tripSegment) {
+    public void traveledByAirplane(PIOTripSegment tripSegment) {
         String param = getJsonParams(tripSegment);
-        evaluateJavascript("departureCanceled('" + param + "')");
+        evaluateJavascript("traveledByAirplane('" + param + "')");
+    }
+
+    @Override
+    public void beingStationaryAfterArrival(PIOTripSegment tripSegment) {
+        String param = getJsonParams(tripSegment);
+        evaluateJavascript("beingStationaryAfterArrival('" + param + "')");
+    }
+
+    @Override
+    public void canceledDeparture(PIOTripSegment tripSegment) {
+        String param = getJsonParams(tripSegment);
+        evaluateJavascript("canceledDeparture('" + param + "')");
     }
 
     @Override
@@ -272,9 +287,9 @@ public class PredictIOPlugin extends CordovaPlugin implements PredictIOListener 
     }
 
     @Override
-    public void transportationMode(PIOTripSegment tripSegment) {
+    public void detectedTransportationMode(PIOTripSegment tripSegment) {
         String param = getJsonParams(tripSegment);
-        evaluateJavascript("transportationMode('" + param + "')");
+        evaluateJavascript("detectedTransportationMode('" + param + "')");
     }
 
     private String getJsonParams(Location location) {
@@ -294,27 +309,65 @@ public class PredictIOPlugin extends CordovaPlugin implements PredictIOListener 
         JSONObject jsonParam = new JSONObject();
         try {
             jsonParam.put("UUID", tripSegment.UUID);
-            if (tripSegment.departureTime != null) {
-                jsonParam.put("departureTime", tripSegment.departureTime.getTime());
-            }
+            jsonParam.put("departureTime", tripSegment.departureTime != null ? tripSegment.departureTime.getTime() : null);
             if (tripSegment.departureLocation != null) {
                 jsonParam.put("departureLatitude", tripSegment.departureLocation.getLatitude());
                 jsonParam.put("departureLongitude", tripSegment.departureLocation.getLongitude());
+            } else {
+                jsonParam.put("departureLatitude", null);
+                jsonParam.put("departureLongitude", null);
             }
-            if (tripSegment.arrivalTime != null) {
-                jsonParam.put("arrivalTime", tripSegment.arrivalTime.getTime());
-            }
+            jsonParam.put("arrivalTime", tripSegment.arrivalTime != null ? tripSegment.arrivalTime.getTime() : null);
             if (tripSegment.arrivalLocation != null) {
                 jsonParam.put("arrivalLatitude", tripSegment.arrivalLocation.getLatitude());
                 jsonParam.put("arrivalLongitude", tripSegment.arrivalLocation.getLongitude());
+            } else {
+                jsonParam.put("arrivalLatitude", null);
+                jsonParam.put("arrivalLongitude", null);
             }
             if (tripSegment.transportationMode != null) {
-                jsonParam.put("transportationMode", tripSegment.transportationMode.name());
+                String transportationMode = "Undetermined";
+                if (TransportationMode.CAR == tripSegment.transportationMode) {
+                    transportationMode = "Car";
+                } else if (TransportationMode.NON_CAR == tripSegment.transportationMode) {
+                    transportationMode = "NonCar";
+                } else if (TransportationMode.BICYCLE == tripSegment.transportationMode) {
+                    transportationMode = "Bicycle";
+                }
+                jsonParam.put("transportationMode", transportationMode);
+            } else {
+                jsonParam.put("transportationMode", null);
             }
+            jsonParam.put("stationaryAfterArrival", tripSegment.stationaryAfterArrival);
+            jsonParam.put("departureZone", getZoneParams(tripSegment.departureZone));
+            jsonParam.put("arrivalZone", getZoneParams(tripSegment.arrivalZone));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return jsonParam.toString();
+    }
+
+    @Nullable
+    private JSONObject getZoneParams(PIOZone pioZone) throws JSONException {
+        if (pioZone != null && pioZone.center != null) {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("zoneCenterLatitude", pioZone.center.latitude);
+            jsonObject.put("zoneCenterLongitude", pioZone.center.longitude);
+            jsonObject.put("zoneRadius", pioZone.radius);
+            if (pioZone.zoneType != null) {
+                String zoneType = "Other";
+                if (pioZone.zoneType == PIOZone.PIOZoneType.HOME) {
+                    zoneType = "Home";
+                } else if (pioZone.zoneType == PIOZone.PIOZoneType.WORK) {
+                    zoneType = "Work";
+                }
+                jsonObject.put("zoneType", zoneType);
+            } else {
+                jsonObject.put("zoneType", null);
+            }
+            return jsonObject;
+        }
+        return null;
     }
 
     private void evaluateJavascript(final String js) {

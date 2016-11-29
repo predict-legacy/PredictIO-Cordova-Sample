@@ -7,10 +7,16 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
         "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
+        "cordova-plugin-fcm": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
         "cordova-plugin-geolocation": {
@@ -22,22 +28,15 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.predict.cordova.example"
+        },
         "cordova-sqlite-storage": {
             "PACKAGE_NAME": "io.predict.cordova.example"
         },
         "cordova-plugin-predict-io": {
             "PACKAGE_NAME": "io.predict.cordova.example"
-        },
-        "cordova-plugin-firebase": {
-            "PACKAGE_NAME": "io.predict.cordova.example"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.predict.cordova.example"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "io.predict.cordova.example"
-        }
-    }
+    "dependent_plugins": {}
 }
